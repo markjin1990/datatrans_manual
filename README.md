@@ -1,1 +1,3 @@
-# datatrans_manual
+A data tranformation program manually generated
+For testing:
+  ./run
