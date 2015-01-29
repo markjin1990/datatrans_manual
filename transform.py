@@ -71,13 +71,9 @@ class Transform:
 			if len(datum) > 0 and datum[len(datum)-1] == ':':
 				datumToAdd = datum[:len(datum)-1]
 
-			print datumToAdd
 			# Remove space
-			if datumToAdd != '\s':
+			if datumToAdd != '\s' and datumToAdd != '':
 				newDataArray.append(datumToAdd)
-			else:
-				print "it is space"
-			
 
 		mydata = " ".join(newDataArray)
 
@@ -110,14 +106,14 @@ class Transform:
 		
 		for idxInData,datum in enumerate(dataArray):
 			# If this is an attribute we are looking for in the relation
-			print str(idxInData) +":"+datum
-			'''
+			# print str(idxInData) +":"+datum
+			
 			if datum in self.attr_list:
 				idxInRelation = self.attr_list.index(datum)
 				# There is no value under attribute datum for this instance
-
-				print str(len(self.relation)) + " " +  str(len(self.relation[instancePointer]))
-				if len(self.relation) >= instancePointer:
+			
+				#print str(len(self.relation)) + " " +  str(len(self.relation[instancePointer]))
+				if len(self.relation) >= instancePointer+1:
 					if not self.relation[instancePointer][idxInRelation]:
 						self.relation[instancePointer][idxInRelation] = dataArray[idxInData+1]
 					else:
@@ -127,10 +123,10 @@ class Transform:
 						self.relation[instancePointer][idxInRelation] = dataArray[idxInData+1]
 				
 				else:
-					l = [None] * len(self.)
+					l = [None] * len(self.attr_list)
 					self.relation.append(l)
 					self.relation[instancePointer][idxInRelation] = dataArray[idxInData+1]
-				'''
+				
 				
 
 		print self.relation
