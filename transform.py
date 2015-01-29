@@ -49,12 +49,14 @@ class Transform:
 	def txtReader(self,fn):
 		f = open(fn, "r")		
 		text = f.read()
+		f.close()
 		return text
 
 	def binReader(self,fn):
 		f = open(fn, "rb")		
 
 		text = f.read()
+		f.close()
 		return text
 
 	# We want \s be the only delimiter
@@ -220,7 +222,14 @@ class Transform:
 	# Transformation
 	def transformation(self):
 		self.relation = self.merge(self.relation,7,8,' > ')
+		print "Merge column 7 and 8 with delimiter '>'"
+		print self.toCsv(self.relation)
+		print "\n"
+
 		self.relation = self.fold(self.relation,[2,3,4])
+		print "Fold column 2,3,4"
+		print self.toCsv(self.relation)
+		print "\n"
 
 
 	def production(self):
@@ -243,9 +252,20 @@ class Transform:
 def main(argv):
 	m = Transform()
 	m.desearialize("./testfile/tcpdump.txt")
+	print "Data Input: "
+	print m.data
+	print "\n"
 	m.extraction()
-	m.transformation()
+	print "Extraction:"
 	print m.toCsv(m.relation)
+	print "\n"
+
+	print "Transformation:"
+	m.transformation()
+	print "Final output:"
+	print m.toCsv(m.relation)
+	print "\n"
+	
 
 if __name__ == "__main__":
     main(sys.argv[1:])
