@@ -24,6 +24,37 @@ def reform(relation,col,formatFuncInput,formatFuncOutput):
 	return newRelation
 
 
+def divide(relation,col,pred):
+	if col >= len(relation[0]):
+		print "ERROR: Index out of range"
+		return relation
+
+	newRelation = list()
+
+	for idx,row in enumerate(relation):
+		newRow = list(row)
+		if pred(str(row[col])):
+			newRow.append("")
+		else:
+			newRow.append(newRow[col])
+			newRow[col] = ""
+
+		newRelation.append(newRow)
+
+	return newRelation
+
+def pred(s):
+	if len(s) > 2:
+		return True
+	else:
+		return False
+
+
+relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
+print divide(relation,0,pred)
+
+
+
 def drop(relation,col):
 	if col >= len(relation[0]):
 		print "ERROR: Index out of range"
@@ -93,8 +124,6 @@ def merge(relation,col1,col2,delimiter):
 
 	return newRelation
 
-relation = [["a","aaa>bbb"],["b","mmm>lll"]]
-print merge(relation,0,1,":")
 
 
 # Fold the columns in foldList
@@ -131,3 +160,4 @@ def fold(self,relation,foldList,name="New column with name undefined"):
 			newRelation.append(newRow)
 
 	return newRelation
+
