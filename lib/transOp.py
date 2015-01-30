@@ -5,28 +5,31 @@ import re
 
 def reform(relation,col,formatFuncInput,formatFuncOutput):
 	if col >= len(relation[0]):
-		print "ERROR: Index Out of Range"
+		print "ERROR: Index out of range"
 		return relation
 
 	newRelation = list()
 	pattern = re.compile(formatFuncInput)
 
 	for idx,row in enumerate(relation):
-		match = re.match(pattern,formatFuncInput)
+		match = re.match(formatFuncInput,row[col],re.M|re.I)
 		if not match:
 			print "ERROR: No match found. Please check your regular expression."
-		newRow = formatFuncOutput.format(match.group())
+			return relation
+
+		newRow = list(row)
+		newRow[col] = formatFuncOutput.format(*match.groups())
 		newRelation.append(newRow)
 
 	return newRelation
 
-relation = [["a","aaa>bbb"],["b","mmm>lll"]]
-print reform(relation,1,"(\w+)>(\w+)","{1},{2}")
 
-def drop(self,relation,col):
+def drop(relation,col):
 	if col >= len(relation[0]):
-		print "ERROR: Index Out of Range"
+		print "ERROR: Index out of range"
 		return relation
+
+	newRelation = list()
 
 	for idx,row in enumerate(relation):
 		row.pop(col)
@@ -36,7 +39,8 @@ def drop(self,relation,col):
 
 
 
-def add(self,relation,value):
+
+def add(relation,value):
 	newRelation = list()
 	if len(value) > 1 and len(value)!=len(relation):
 		print "ERROR: The number of added values is less than number of rows"
@@ -52,9 +56,11 @@ def add(self,relation,value):
 
 	return newRelation
 
-def copy(self,relation,col):
+
+
+def copy(relation,col):
 	if col >= len(relation[0]):
-		print "ERROR: Index Out of Range"
+		print "ERROR: Index out of range"
 		return relation
 
 	newRelation = list()
@@ -64,9 +70,11 @@ def copy(self,relation,col):
 
 	return newRelation
 
-def merge(self,relation,col1,col2,delimiter):
+
+
+def merge(relation,col1,col2,delimiter):
 	if col1 >= len(relation[0]) or col2 >= len(relation[0]):
-		print "ERROR: Index Out of Range"
+		print "ERROR: Index out of range"
 		return relation
 	elif col1 == col2:
 		print "ERROR: Two columns can not be identical"
@@ -84,6 +92,10 @@ def merge(self,relation,col1,col2,delimiter):
 		newRelation.append(row) 
 
 	return newRelation
+
+relation = [["a","aaa>bbb"],["b","mmm>lll"]]
+print merge(relation,0,1,":")
+
 
 # Fold the columns in foldList
 def fold(self,relation,foldList,name="New column with name undefined"):
