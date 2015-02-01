@@ -2,14 +2,13 @@
 # It has operators: Format, Merge, Divide, Split, Add, Drop, Copy, Fold, Unfold, Select
 import re
 
-
+# E.g., formatFuncInput = (\w+):(\w+), formatFuncOutput = {0}-{1}
 def reform(relation,col,formatFuncInput,formatFuncOutput):
 	if col >= len(relation[0]):
 		print "ERROR: Index out of range"
 		return relation
 
 	newRelation = list()
-	pattern = re.compile(formatFuncInput)
 
 	for idx,row in enumerate(relation):
 		match = re.match(formatFuncInput,row[col],re.M|re.I)
@@ -18,11 +17,13 @@ def reform(relation,col,formatFuncInput,formatFuncOutput):
 			return relation
 
 		newRow = list(row)
-		newRow[col] = formatFuncOutput.format(*match.groups())
-		newRelation.append(newRow)
+		row[col] = formatFuncOutput.format(*match.groups())
+		newRelation.append(row)
 
 	return newRelation
 
+#relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
+#print reform(relation,1,"(\w+)>(\w+)","{0}>={1}")
 
 def divide(relation,col,pred):
 	if col >= len(relation[0]):
@@ -50,8 +51,8 @@ def pred(s):
 		return False
 
 
-relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
-print divide(relation,0,pred)
+#relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
+#print divide(relation,0,pred)
 
 
 
