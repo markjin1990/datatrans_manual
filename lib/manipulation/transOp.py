@@ -128,7 +128,7 @@ def merge(relation,col1,col2,delimiter):
 
 
 # Fold the columns in foldList
-def fold(self,relation,foldList,name="New column with name undefined"):
+def fold(relation,foldList,name=""):
 	for foldCol in foldList:
 		if foldCol >= len(relation[0]):
 			print "ERROR: Index Out of Range"
@@ -161,4 +161,23 @@ def fold(self,relation,foldList,name="New column with name undefined"):
 			newRelation.append(newRow)
 
 	return newRelation
+
+# Tranpose the table, meaning turning all rows to columns and columns to rows
+def transpose(relation):
+	row = len(relation)
+	col = len(relation[0])
+	newRelation = [None]*col
+	for i in range(0,col):
+		newRelation[i] = [None]*row
+
+	for i in range(0,row):
+		for j in range(0,col):
+			newRelation[j][i] = relation[i][j]
+
+	return newRelation
+
+
+#a = [[1,2,3],[4,5,6]]
+#print transpose(a)
+
 
