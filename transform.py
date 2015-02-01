@@ -153,7 +153,7 @@ class Transform:
 		# We assume the value comes right after attribute name in the actual data file
 		# A pointer showing which tuple we are creating
 		instancePointer = 1
-		timePattern = re.compile("[\d]+\:[\d]+\:[\d]+\.[\d]")
+		timePattern = re.compile("[\d]+\:[\d]+\:[\d]+\.[\d]+")
 		ipPattern = re.compile("[\d]+\.[\d]+\.[\d]+\.[\d]")
 		
 		for idxInData,datum in enumerate(dataArray):

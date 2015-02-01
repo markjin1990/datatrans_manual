@@ -176,8 +176,33 @@ def transpose(relation):
 
 	return newRelation
 
-
 #a = [[1,2,3],[4,5,6]]
 #print transpose(a)
+
+# Move column from origPosn to dstPosn
+def moveColumn(relation,origPosn,dstPosn):
+	newRelation = list(relation)
+	for row in newRelation:
+		temp = row[origPosn]
+		row.pop(origPosn)
+		row.insert(dstPosn,temp)
+		
+	return newRelation
+
+#a = [[1,2,3],[4,5,6]]
+#print moveColumn(a,2,0)
+
+# Move row from origPosn to dstPosn
+def moveRow(relation,origPosn,dstPosn):
+	newRelation = list(relation)
+	temp = newRelation[origPosn]
+	newRelation.pop(origPosn)
+	newRelation.insert(dstPosn,temp)
+		
+	return newRelation
+
+
+# a = [[1,2,3],[4,5,6]]
+# print moveRow(a,1,0)
 
 

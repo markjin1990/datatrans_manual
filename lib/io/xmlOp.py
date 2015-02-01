@@ -29,10 +29,3 @@ def numOfElements(tag):
 	root = tree.getroot()
 	return len(findElements(tag))
 
-
-
-readXml("../testfile/nutrition.xml")
-getChildTag(tree.getroot())
-for child in findChild(tag = "a",parent = "vitamins"):
-	print child.text
-
