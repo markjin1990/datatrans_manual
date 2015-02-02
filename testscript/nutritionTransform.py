@@ -4,7 +4,6 @@ sys.path.append('../lib/io')
 
 import transOp
 import xmlOp
-import csvOp
 
 xmlOp.readXml("../testfile/nutrition.xml")
 

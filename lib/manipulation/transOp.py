@@ -25,7 +25,7 @@ def reform(relation,col,formatFuncInput,formatFuncOutput):
 #relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
 #print reform(relation,1,"(\w+)>(\w+)","{0}>={1}")
 
-def divide(relation,col,pred):
+def divide(relation,col,pred,ifContainAttributeRow = False,newColumnName1='',newColumnName2=''):
 	if col >= len(relation[0]):
 		print "ERROR: Index out of range"
 		return relation
@@ -33,12 +33,27 @@ def divide(relation,col,pred):
 	newRelation = list()
 
 	for idx,row in enumerate(relation):
+
 		newRow = list(row)
-		if pred(str(row[col])):
+
+		if ifContainAttributeRow and idx == 0:
+			temp = newRow[col]
+			newRow.pop(col)
+			newRow.append(newColumnName1)
+			newRow.append(newColumnName2)
+			newRelation.append(newRow)
+			continue
+		
+		if pred(row[col]):
+			temp = newRow[col]
+			newRow.pop(col)
+			newRow.append(temp)
 			newRow.append("")
 		else:
-			newRow.append(newRow[col])
-			newRow[col] = ""
+			temp = newRow[col]
+			newRow.pop(col)
+			newRow.append("")
+			newRow.append(temp)
 
 		newRelation.append(newRow)
 
@@ -162,6 +177,73 @@ def fold(relation,foldList,name=""):
 
 	return newRelation
 
+
+# Unfold: takes unique col1 values as new columns and col2 as the values of new columns, 
+# Every maximal set of rows in T that have identical values in all columns except the i'th 
+# and j'th, and distinct values in the i'th column, produces exactly one row
+
+def unfold(relation,col1,col2,ifContainAttributeRow = False):
+	col1Set = list()
+	for row in relation:
+		col1Set.append(row[col1])
+
+	col1Set = list(set(col1Set))
+
+	n = len(relation[0])
+	m = len(col1Set)
+
+	newRelation = list()
+
+	# make col1 unique values as the attribute name
+	if ifContainAttributeRow:
+		temp = list(relation[0])
+		if col2 > col1:
+			temp.pop(col2)
+			temp.pop(col1)
+		else: 
+			temp.pop(col1)
+			temp.pop(col2)
+		
+		attrRow = temp + col1Set
+		newRelation.append(attrRow)
+		
+	else:
+		attrRow = ['']*(n-2)
+		attrRow = attrRow + col1Set
+		newRelation.append(attrRow)
+	
+	otherColumnsIndexDict = dict()
+	for row in relation:
+		temp1 = row[col1]
+		temp2 = row[col2]
+		if col2 > col1:
+			row.pop(col2)
+			row.pop(col1)
+		else: 
+			row.pop(col1)
+			row.pop(col2)
+		key = "_".join(row)
+
+		if key in otherColumnsIndexDict.keys():
+			rowIndex = otherColumnsIndexDict[key]
+			columnIndex = col1Set.index(temp1) + n-2
+			newRelation[rowIndex][columnIndex] = temp2
+
+		else:
+			newRow = list(row) + [None]*m			
+			columnIndex = col1Set.index(temp1) + n-2
+			newRow[columnIndex] = temp2
+			rowIndex = len(newRelation)
+			newRelation.append(newRow)
+			otherColumnsIndexDict[key] = rowIndex
+
+	return newRelation
+
+#a = [["Alice","Math",80],["Alice","English",90],["Bob","Math",85],["Bob","Physics",80]]
+#relation = unfold(a,1,2)
+#print relation
+
+
 # Select tuples that match the predicate
 def select(relation,pred):
 	newRelation = list()
@@ -171,11 +253,11 @@ def select(relation,pred):
 
 	return newRelation
 
-def pred(s):
-	if len(s[0]) > 2:
-		return True
-	else:
-		return False
+#def pred(s):
+#	if len(s[0]) > 2:
+#		return True
+#	else:
+#		return False
 
 
 #relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
