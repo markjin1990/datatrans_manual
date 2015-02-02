@@ -18,7 +18,7 @@ totalFatCol = xmlOp.findElements("food/total-fat")
 saturatedFatCol = xmlOp.findElements("food/saturated-fat")
 cholesterolCol = xmlOp.findElements("food/cholesterol")
 sodiumCol = xmlOp.findElements("food/sodium")
-cardCol = xmlOp.findElements("food/carb")
+carbCol = xmlOp.findElements("food/carb")
 fiberCol = xmlOp.findElements("food/fiber")
 proteinCol = xmlOp.findElements("food/protein")
 vitaminsACol = xmlOp.findElements("food/vitamins/a")
@@ -26,10 +26,11 @@ vitaminsCCol = xmlOp.findElements("food/vitamins/c")
 mineralsCaCol = xmlOp.findElements("food/minerals/ca")
 mineralsFeCol = xmlOp.findElements("food/minerals/fe")
 
-relation = [nameCol,mfrCol,servingCol,caloriesCol,totalFatCol,saturatedFatCol,cholesterolCol,sodiumCol,cardCol,
+relation = [nameCol,mfrCol,servingCol,caloriesCol,totalFatCol,saturatedFatCol,cholesterolCol,sodiumCol,carbCol,
 fiberCol,proteinCol,proteinCol,vitaminsACol,vitaminsCCol,mineralsCaCol,mineralsCaCol]
 
 relation = transOp.transpose(relation)
+
 
 
 # Extract all values and create a relation
@@ -48,6 +49,7 @@ for row in relation:
 print "\nExtracted relation:"
 for row in valueRelation:
 	print row
+
 
 # move column from position 2 to 3
 valueRelation = transOp.moveColumn(valueRelation,2,3)
@@ -70,7 +72,7 @@ print "\nReform column 16 as \"number(unit)\":"
 for row in valueRelation:
 	print row
 
-# reform column 16 as 16(g) 
+# Select low calories food(food that has less than 200 calories)
 def pred(row):
 	if float(row[2]) < 200:
 		return True

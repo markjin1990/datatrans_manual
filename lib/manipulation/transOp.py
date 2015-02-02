@@ -129,17 +129,37 @@ def merge(relation,col1,col2,delimiter):
 
 	newRelation = list()
 	for idx,row in enumerate(relation):
-		row.append(row[col1] + delimiter + row[col2])
 		if col1 > col2:
 			row.pop(col1)
 			row.pop(col2)
 		else:
 			row.pop(col2)
-			row.pop(col1)
+			row.pop(col1)		
+		row.append(row[col1] + delimiter + row[col2])
 		newRelation.append(row) 
 
 	return newRelation
 
+def split(relation,col,delimiter):
+	if col >= len(relation[0]):
+		print "ERROR: Index out of range"
+		return relation
+
+	newRelation = list()
+	for idx,row in enumerate(relation):
+		newRow = list(row)
+		splitList = newRow[col].split(delimiter)
+		if len(splitList) < 2:
+			print "WARNING: nothing is splited by delimiter "+delimiter
+		newRow.pop(col)
+		for item in splitList:
+			newRow.append(item)
+		newRelation.append(newRow) 
+
+	return newRelation
+
+relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
+print split(relation,1,">")
 
 
 # Fold the columns in foldList

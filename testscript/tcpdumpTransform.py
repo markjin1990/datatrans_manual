@@ -24,20 +24,26 @@ dstipCol = textOp.extract(inputData=inputData,valueRegex="\d+\.\d+\.\d+\.\d+",pr
 
 relation = [timeCol,tosCol,ttlCol,idCol,offsetCol,flagsCol,lengthCol,srcipCol,dstipCol]
 relation = transOp.transpose(relation)
+#relation.insert(0,['time','tos','ttl','id','offset','flags','length','srcip','dstip'])
+
 
 
 relation = transOp.merge(relation,7,8,">")
 print "\nMerge column 7 and 8 with delimiter >"
-print relation
+for row in relation:
+	print row
 
 relation = transOp.add(relation,[1,2])
 print "\nAdd a column of index (row index)"
-print relation
+for row in relation:
+	print row
 
 relation = transOp.moveColumn(relation,8,0)
 print "\nMove the column of index to front"
-print relation
+for row in relation:
+	print row
 
 print "\nOutput Relation:"
-print relation
+for row in relation:
+	print row
 #csvOp.writeCsv(relation,"output.txt")
