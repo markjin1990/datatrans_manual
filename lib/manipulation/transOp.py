@@ -44,11 +44,11 @@ def divide(relation,col,pred):
 
 	return newRelation
 
-def pred(s):
-	if len(s) > 2:
-		return True
-	else:
-		return False
+#def pred(s):
+#	if len(s) > 2:
+#		return True
+#	else:
+#		return False
 
 
 #relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
@@ -161,6 +161,26 @@ def fold(relation,foldList,name=""):
 			newRelation.append(newRow)
 
 	return newRelation
+
+# Select tuples that match the predicate
+def select(relation,pred):
+	newRelation = list()
+	for row in relation:
+		if pred(row):
+			newRelation.append(row)
+
+	return newRelation
+
+def pred(s):
+	if len(s[0]) > 2:
+		return True
+	else:
+		return False
+
+
+#relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
+#print select(relation,pred)
+
 
 # Tranpose the table, meaning turning all rows to columns and columns to rows
 def transpose(relation):

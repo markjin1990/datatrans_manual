@@ -32,14 +32,58 @@ fiberCol,proteinCol,proteinCol,vitaminsACol,vitaminsCCol,mineralsCaCol,mineralsC
 
 relation = transOp.transpose(relation)
 
+
+# Extract all values and create a relation
 valueRelation = list()
 for row in relation:
 	newRow = list()
 	for col in row:
-		if col.tag != None:
-			newRow.append(col.tag)
 		if col.attrib != None:
 			newRow = newRow + col.attrib.values()
+
+		if col.text != None:
+			newRow.append(col.text)
+		
 	valueRelation.append(newRow)
-print valueRelation
+
+print "\nExtracted relation:"
+for row in valueRelation:
+	print row
+
+# move column from position 2 to 3
+valueRelation = transOp.moveColumn(valueRelation,2,3)
+
+print "\nMove column from 2 to 3:"
+for row in valueRelation:
+	print row
+
+# merge column 2 and 3
+valueRelation = transOp.merge(valueRelation,2,3," ")
+
+print "\nMerge column 2 and 3:"
+for row in valueRelation:
+	print row
 			
+# reform column 16 as 16(g) 
+valueRelation = transOp.reform(valueRelation,16,"([\d|\.]+)\s+(\w+)","{0}({1})")
+
+print "\nReform column 16 as \"number(unit)\":"
+for row in valueRelation:
+	print row
+
+# reform column 16 as 16(g) 
+def pred(row):
+	if float(row[2]) < 200:
+		return True
+	else:
+		return False
+
+valueRelation = transOp.select(valueRelation,pred)
+
+print "\nSelect low calories food(food that has less than 200 calories):"
+for row in valueRelation:
+	print row
+
+print "\nFinal Output:"
+for row in valueRelation:
+	print row
