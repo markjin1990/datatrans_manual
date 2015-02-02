@@ -8,26 +8,38 @@ import csvOp
 
 xmlOp.readXml("../testfile/nutrition.xml")
 
-nameCol = xmlOp.findElements("name")
-mfrCol = xmlOp.findElements("mfr")
-servingCol = xmlOp.findElements("serving")
-caloriesCol = xmlOp.findElements("calories")
-totalFatCol = xmlOp.findElements("total-fat")
-saturatedFatCol = xmlOp.findElements("saturated-fat")
-cholesterolCol = xmlOp.findElements("cholesterol")
-sodiumCol = xmlOp.findElements("sodium")
-cardCol = xmlOp.findElements("carb")
-fiberCol = xmlOp.findElements("fiber")
-proteinCol = xmlOp.findElements("protein")
-vitaminsACol = xmlOp.findElements("vitamins/a")
-vitaminsCCol = xmlOp.findElements("vitamins/c")
-mineralsCaCol = xmlOp.findElements("minenrals/ca")
-mineralsFeCol = xmlOp.findElements("minenrals/fe")
+nameCol = xmlOp.findElements("food/name")
+mfrCol = xmlOp.findElements("food/mfr")
+servingCol = xmlOp.findElements("food/serving")
+caloriesCol = xmlOp.findElements("food/calories")
+
+
+
+totalFatCol = xmlOp.findElements("food/total-fat")
+saturatedFatCol = xmlOp.findElements("food/saturated-fat")
+cholesterolCol = xmlOp.findElements("food/cholesterol")
+sodiumCol = xmlOp.findElements("food/sodium")
+cardCol = xmlOp.findElements("food/carb")
+fiberCol = xmlOp.findElements("food/fiber")
+proteinCol = xmlOp.findElements("food/protein")
+vitaminsACol = xmlOp.findElements("food/vitamins/a")
+vitaminsCCol = xmlOp.findElements("food/vitamins/c")
+mineralsCaCol = xmlOp.findElements("food/minerals/ca")
+mineralsFeCol = xmlOp.findElements("food/minerals/fe")
 
 relation = [nameCol,mfrCol,servingCol,caloriesCol,totalFatCol,saturatedFatCol,cholesterolCol,sodiumCol,cardCol,
 fiberCol,proteinCol,proteinCol,vitaminsACol,vitaminsCCol,mineralsCaCol,mineralsCaCol]
 
+relation = transOp.transpose(relation)
+
+valueRelation = list()
 for row in relation:
+	newRow = list()
 	for col in row:
-		print col.text+","
-	print "\n"
+		if col.tag != None:
+			newRow.append(col.tag)
+		if col.attrib != None:
+			newRow = newRow + col.attrib.values()
+	valueRelation.append(newRow)
+print valueRelation
+			
