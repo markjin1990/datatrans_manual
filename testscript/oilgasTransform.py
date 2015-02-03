@@ -29,7 +29,7 @@ for i in range(0,10):
 print "length: "+str(len(relation))
 
 relation = transOp.unfold(relation,2,3,ifContainAttributeRow =True)
-relation = transOp.drop(relation,2)
+relation = transOp.drop(relation,24)
 
 print "\nUnfold column 2,3:"
 for i in range(0,10):

@@ -15,8 +15,6 @@ def reform(relation,col,formatFuncInput,formatFuncOutput,ifContainAttributeRow =
 			newRelation.append(list(row))
 			continue
 
-		print row[col]
-
 		match = re.match(formatFuncInput,row[col],re.M|re.I)
 		if not match:
 			print "WARNING: No match found. Please check your regular expression."
@@ -222,7 +220,17 @@ def unfold(relation,col1,col2,ifContainAttributeRow = False):
 			continue
 		col1Set.append(row[col1])
 
-	col1Set = list(set(col1Set))
+	# Remove duplicates
+	col1SetTemp = list(set(col1Set))
+	tempList = list()
+	tempSet = set()
+	for item in col1Set:
+		if item not in tempSet:
+			tempSet.add(item)
+			tempList.append(item)
+		if len(tempSet) >= len(col1SetTemp):
+			col1Set = list(tempList)
+			break
 
 	n = len(relation[0])
 	m = len(col1Set)
@@ -276,9 +284,9 @@ def unfold(relation,col1,col2,ifContainAttributeRow = False):
 
 	return newRelation
 
-#a = [["Alice","Math",80],["Alice","English",90],["Bob","Math",85],["Bob","Physics",80]]
-#relation = unfold(a,1,2)
-#print relation
+a = [["Alice","Math",80],["Alice","English",90],["Bob","Math",85],["Bob","Physics",80]]
+relation = unfold(a,1,2)
+print relation
 
 
 # Select tuples that match the predicate
