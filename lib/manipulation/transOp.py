@@ -15,9 +15,12 @@ def reform(relation,col,formatFuncInput,formatFuncOutput,ifContainAttributeRow =
 			newRelation.append(list(row))
 			continue
 
+		print row[col]
+
 		match = re.match(formatFuncInput,row[col],re.M|re.I)
 		if not match:
 			print "WARNING: No match found. Please check your regular expression."
+			return relation
 
 		newRow = list(row)
 		row[col] = formatFuncOutput.format(*match.groups())
@@ -144,7 +147,7 @@ def merge(relation,col1,col2,delimiter):
 
 	return newRelation
 
-def split(relation,col,delimiter):
+def split(relation,col,delimiter,ifContainAttributeRow = False):
 	if col >= len(relation[0]):
 		print "ERROR: Index out of range"
 		return relation
@@ -159,6 +162,11 @@ def split(relation,col,delimiter):
 		for item in splitList:
 			newRow.append(item)
 		newRelation.append(newRow) 
+
+	if ifContainAttributeRow and len(newRelation[0]) < len(newRelation[1]):
+		for i in range(0,len(newRelation[1])-len(newRelation[0])):
+			newRelation[0].append("")
+
 
 	return newRelation
 

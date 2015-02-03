@@ -40,102 +40,309 @@ Add column and move to front:
 ['Conventional price 1', '2005', '2.06', '2.03', '2.06', '2.05', '2.07', '2.04', '2.02', '2.03', '2.03', '2.04', '2.05', '2.06']
 ['Conventional price 1', '2006', '2.05', '2.04', '2.03', '1.98', '1.99', '1.97', '1.97', '1.98', '1.97', '2.01', '1.98', '2.01']
 ['Conventional price 1', '2007', '2.03', '2.04', '2.06', '2.11', '2.16', '2.24', '2.39', '2.46', '2.46', '2.46', '2.46', '2.43']
+3.24
+3.94
+4.31
+4.47
+1.64
+2.06
+2.05
+2.03
+3.25
+3.92
+4.33
+4.42
+1.62
+2.03
+2.04
+2.04
+3.23
+4.01
+4.23
+4.67
+1.61
+2.06
+2.03
+2.06
+3.27
+3.95
+4.28
+4.70
+1.64
+2.05
+1.98
+2.11
+3.19
+4.12
+4.20
+4.46
+1.86
+2.07
+1.99
+2.16
+3.21
+4.22
+4.17
+4.32
+1.91
+2.04
+1.97
+2.24
+3.25
+4.18
+4.28
+4.33
+1.86
+2.02
+1.97
+2.39
+3.26
+4.28
+4.28
+4.16
+1.74
+2.03
+1.98
+2.46
+3.21
+4.30
+4.36
+4.45
+1.71
+2.03
+1.97
+2.46
+3.22
+4.36
+4.16
+4.42
+1.72
+2.04
+2.01
+2.46
+3.26
+4.27
+4.28
+4.30
+1.72
+2.05
+1.98
+2.46
+3.23
+4.65
+4.32
+4.40
+1.70
+2.06
+2.01
+2.43
+
+Format column 2-13 as Month:number
+['', 'Year', 'Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'June', 'July', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.']
+['Organic price 1', '2004', 'Jan.:3.24', 'Feb.:3.25', 'Mar.:3.23', 'Apr.:3.27', 'May:3.19', 'Jun.:3.21', 'Jul.:3.25', 'Aug.:3.26', 'Sep.:3.21', 'Oct.:3.22', 'Nov.:3.26', 'Dec.:3.23']
+['Organic price 1', '2005', 'Jan.:3.94', 'Feb.:3.92', 'Mar.:4.01', 'Apr.:3.95', 'May:4.12', 'Jun.:4.22', 'Jul.:4.18', 'Aug.:4.28', 'Sep.:4.30', 'Oct.:4.36', 'Nov.:4.27', 'Dec.:4.65']
+['Organic price 1', '2006', 'Jan.:4.31', 'Feb.:4.33', 'Mar.:4.23', 'Apr.:4.28', 'May:4.20', 'Jun.:4.17', 'Jul.:4.28', 'Aug.:4.28', 'Sep.:4.36', 'Oct.:4.16', 'Nov.:4.28', 'Dec.:4.32']
+['Organic price 1', '2007', 'Jan.:4.47', 'Feb.:4.42', 'Mar.:4.67', 'Apr.:4.70', 'May:4.46', 'Jun.:4.32', 'Jul.:4.33', 'Aug.:4.16', 'Sep.:4.45', 'Oct.:4.42', 'Nov.:4.30', 'Dec.:4.40']
+['Conventional price 1', '2004', 'Jan.:1.64', 'Feb.:1.62', 'Mar.:1.61', 'Apr.:1.64', 'May:1.86', 'Jun.:1.91', 'Jul.:1.86', 'Aug.:1.74', 'Sep.:1.71', 'Oct.:1.72', 'Nov.:1.72', 'Dec.:1.70']
+['Conventional price 1', '2005', 'Jan.:2.06', 'Feb.:2.03', 'Mar.:2.06', 'Apr.:2.05', 'May:2.07', 'Jun.:2.04', 'Jul.:2.02', 'Aug.:2.03', 'Sep.:2.03', 'Oct.:2.04', 'Nov.:2.05', 'Dec.:2.06']
+['Conventional price 1', '2006', 'Jan.:2.05', 'Feb.:2.04', 'Mar.:2.03', 'Apr.:1.98', 'May:1.99', 'Jun.:1.97', 'Jul.:1.97', 'Aug.:1.98', 'Sep.:1.97', 'Oct.:2.01', 'Nov.:1.98', 'Dec.:2.01']
+['Conventional price 1', '2007', 'Jan.:2.03', 'Feb.:2.04', 'Mar.:2.06', 'Apr.:2.11', 'May:2.16', 'Jun.:2.24', 'Jul.:2.39', 'Aug.:2.46', 'Sep.:2.46', 'Oct.:2.46', 'Nov.:2.46', 'Dec.:2.43']
 
 Fold columns 2-13:
 ['', 'Year', '']
-['Organic price 1', '2004', '3.24']
-['Organic price 1', '2004', '3.25']
-['Organic price 1', '2004', '3.23']
-['Organic price 1', '2004', '3.27']
-['Organic price 1', '2004', '3.19']
-['Organic price 1', '2004', '3.21']
-['Organic price 1', '2004', '3.25']
-['Organic price 1', '2004', '3.26']
-['Organic price 1', '2004', '3.21']
-['Organic price 1', '2004', '3.22']
-['Organic price 1', '2004', '3.26']
-['Organic price 1', '2004', '3.23']
-['Organic price 1', '2005', '3.94']
-['Organic price 1', '2005', '3.92']
-['Organic price 1', '2005', '4.01']
-['Organic price 1', '2005', '3.95']
-['Organic price 1', '2005', '4.12']
-['Organic price 1', '2005', '4.22']
-['Organic price 1', '2005', '4.18']
-['Organic price 1', '2005', '4.28']
-['Organic price 1', '2005', '4.30']
-['Organic price 1', '2005', '4.36']
-['Organic price 1', '2005', '4.27']
-['Organic price 1', '2005', '4.65']
-['Organic price 1', '2006', '4.31']
-['Organic price 1', '2006', '4.33']
-['Organic price 1', '2006', '4.23']
-['Organic price 1', '2006', '4.28']
-['Organic price 1', '2006', '4.20']
-['Organic price 1', '2006', '4.17']
-['Organic price 1', '2006', '4.28']
-['Organic price 1', '2006', '4.28']
-['Organic price 1', '2006', '4.36']
-['Organic price 1', '2006', '4.16']
-['Organic price 1', '2006', '4.28']
-['Organic price 1', '2006', '4.32']
-['Organic price 1', '2007', '4.47']
-['Organic price 1', '2007', '4.42']
-['Organic price 1', '2007', '4.67']
-['Organic price 1', '2007', '4.70']
-['Organic price 1', '2007', '4.46']
-['Organic price 1', '2007', '4.32']
-['Organic price 1', '2007', '4.33']
-['Organic price 1', '2007', '4.16']
-['Organic price 1', '2007', '4.45']
-['Organic price 1', '2007', '4.42']
-['Organic price 1', '2007', '4.30']
-['Organic price 1', '2007', '4.40']
-['Conventional price 1', '2004', '1.64']
-['Conventional price 1', '2004', '1.62']
-['Conventional price 1', '2004', '1.61']
-['Conventional price 1', '2004', '1.64']
-['Conventional price 1', '2004', '1.86']
-['Conventional price 1', '2004', '1.91']
-['Conventional price 1', '2004', '1.86']
-['Conventional price 1', '2004', '1.74']
-['Conventional price 1', '2004', '1.71']
-['Conventional price 1', '2004', '1.72']
-['Conventional price 1', '2004', '1.72']
-['Conventional price 1', '2004', '1.70']
-['Conventional price 1', '2005', '2.06']
-['Conventional price 1', '2005', '2.03']
-['Conventional price 1', '2005', '2.06']
-['Conventional price 1', '2005', '2.05']
-['Conventional price 1', '2005', '2.07']
-['Conventional price 1', '2005', '2.04']
-['Conventional price 1', '2005', '2.02']
-['Conventional price 1', '2005', '2.03']
-['Conventional price 1', '2005', '2.03']
-['Conventional price 1', '2005', '2.04']
-['Conventional price 1', '2005', '2.05']
-['Conventional price 1', '2005', '2.06']
-['Conventional price 1', '2006', '2.05']
-['Conventional price 1', '2006', '2.04']
-['Conventional price 1', '2006', '2.03']
-['Conventional price 1', '2006', '1.98']
-['Conventional price 1', '2006', '1.99']
-['Conventional price 1', '2006', '1.97']
-['Conventional price 1', '2006', '1.97']
-['Conventional price 1', '2006', '1.98']
-['Conventional price 1', '2006', '1.97']
-['Conventional price 1', '2006', '2.01']
-['Conventional price 1', '2006', '1.98']
-['Conventional price 1', '2006', '2.01']
-['Conventional price 1', '2007', '2.03']
-['Conventional price 1', '2007', '2.04']
-['Conventional price 1', '2007', '2.06']
-['Conventional price 1', '2007', '2.11']
-['Conventional price 1', '2007', '2.16']
-['Conventional price 1', '2007', '2.24']
-['Conventional price 1', '2007', '2.39']
-['Conventional price 1', '2007', '2.46']
-['Conventional price 1', '2007', '2.46']
-['Conventional price 1', '2007', '2.46']
-['Conventional price 1', '2007', '2.46']
-['Conventional price 1', '2007', '2.43']
+['Organic price 1', '2004', 'Jan.:3.24']
+['Organic price 1', '2004', 'Feb.:3.25']
+['Organic price 1', '2004', 'Mar.:3.23']
+['Organic price 1', '2004', 'Apr.:3.27']
+['Organic price 1', '2004', 'May:3.19']
+['Organic price 1', '2004', 'Jun.:3.21']
+['Organic price 1', '2004', 'Jul.:3.25']
+['Organic price 1', '2004', 'Aug.:3.26']
+['Organic price 1', '2004', 'Sep.:3.21']
+['Organic price 1', '2004', 'Oct.:3.22']
+['Organic price 1', '2004', 'Nov.:3.26']
+['Organic price 1', '2004', 'Dec.:3.23']
+['Organic price 1', '2005', 'Jan.:3.94']
+['Organic price 1', '2005', 'Feb.:3.92']
+['Organic price 1', '2005', 'Mar.:4.01']
+['Organic price 1', '2005', 'Apr.:3.95']
+['Organic price 1', '2005', 'May:4.12']
+['Organic price 1', '2005', 'Jun.:4.22']
+['Organic price 1', '2005', 'Jul.:4.18']
+['Organic price 1', '2005', 'Aug.:4.28']
+['Organic price 1', '2005', 'Sep.:4.30']
+['Organic price 1', '2005', 'Oct.:4.36']
+['Organic price 1', '2005', 'Nov.:4.27']
+['Organic price 1', '2005', 'Dec.:4.65']
+['Organic price 1', '2006', 'Jan.:4.31']
+['Organic price 1', '2006', 'Feb.:4.33']
+['Organic price 1', '2006', 'Mar.:4.23']
+['Organic price 1', '2006', 'Apr.:4.28']
+['Organic price 1', '2006', 'May:4.20']
+['Organic price 1', '2006', 'Jun.:4.17']
+['Organic price 1', '2006', 'Jul.:4.28']
+['Organic price 1', '2006', 'Aug.:4.28']
+['Organic price 1', '2006', 'Sep.:4.36']
+['Organic price 1', '2006', 'Oct.:4.16']
+['Organic price 1', '2006', 'Nov.:4.28']
+['Organic price 1', '2006', 'Dec.:4.32']
+['Organic price 1', '2007', 'Jan.:4.47']
+['Organic price 1', '2007', 'Feb.:4.42']
+['Organic price 1', '2007', 'Mar.:4.67']
+['Organic price 1', '2007', 'Apr.:4.70']
+['Organic price 1', '2007', 'May:4.46']
+['Organic price 1', '2007', 'Jun.:4.32']
+['Organic price 1', '2007', 'Jul.:4.33']
+['Organic price 1', '2007', 'Aug.:4.16']
+['Organic price 1', '2007', 'Sep.:4.45']
+['Organic price 1', '2007', 'Oct.:4.42']
+['Organic price 1', '2007', 'Nov.:4.30']
+['Organic price 1', '2007', 'Dec.:4.40']
+['Conventional price 1', '2004', 'Jan.:1.64']
+['Conventional price 1', '2004', 'Feb.:1.62']
+['Conventional price 1', '2004', 'Mar.:1.61']
+['Conventional price 1', '2004', 'Apr.:1.64']
+['Conventional price 1', '2004', 'May:1.86']
+['Conventional price 1', '2004', 'Jun.:1.91']
+['Conventional price 1', '2004', 'Jul.:1.86']
+['Conventional price 1', '2004', 'Aug.:1.74']
+['Conventional price 1', '2004', 'Sep.:1.71']
+['Conventional price 1', '2004', 'Oct.:1.72']
+['Conventional price 1', '2004', 'Nov.:1.72']
+['Conventional price 1', '2004', 'Dec.:1.70']
+['Conventional price 1', '2005', 'Jan.:2.06']
+['Conventional price 1', '2005', 'Feb.:2.03']
+['Conventional price 1', '2005', 'Mar.:2.06']
+['Conventional price 1', '2005', 'Apr.:2.05']
+['Conventional price 1', '2005', 'May:2.07']
+['Conventional price 1', '2005', 'Jun.:2.04']
+['Conventional price 1', '2005', 'Jul.:2.02']
+['Conventional price 1', '2005', 'Aug.:2.03']
+['Conventional price 1', '2005', 'Sep.:2.03']
+['Conventional price 1', '2005', 'Oct.:2.04']
+['Conventional price 1', '2005', 'Nov.:2.05']
+['Conventional price 1', '2005', 'Dec.:2.06']
+['Conventional price 1', '2006', 'Jan.:2.05']
+['Conventional price 1', '2006', 'Feb.:2.04']
+['Conventional price 1', '2006', 'Mar.:2.03']
+['Conventional price 1', '2006', 'Apr.:1.98']
+['Conventional price 1', '2006', 'May:1.99']
+['Conventional price 1', '2006', 'Jun.:1.97']
+['Conventional price 1', '2006', 'Jul.:1.97']
+['Conventional price 1', '2006', 'Aug.:1.98']
+['Conventional price 1', '2006', 'Sep.:1.97']
+['Conventional price 1', '2006', 'Oct.:2.01']
+['Conventional price 1', '2006', 'Nov.:1.98']
+['Conventional price 1', '2006', 'Dec.:2.01']
+['Conventional price 1', '2007', 'Jan.:2.03']
+['Conventional price 1', '2007', 'Feb.:2.04']
+['Conventional price 1', '2007', 'Mar.:2.06']
+['Conventional price 1', '2007', 'Apr.:2.11']
+['Conventional price 1', '2007', 'May:2.16']
+['Conventional price 1', '2007', 'Jun.:2.24']
+['Conventional price 1', '2007', 'Jul.:2.39']
+['Conventional price 1', '2007', 'Aug.:2.46']
+['Conventional price 1', '2007', 'Sep.:2.46']
+['Conventional price 1', '2007', 'Oct.:2.46']
+['Conventional price 1', '2007', 'Nov.:2.46']
+['Conventional price 1', '2007', 'Dec.:2.43']
+WARNING: nothing is splited by delimiter :
+
+Split column 2 based on delimiter=: 
+['', 'Year', '', '']
+['Organic price 1', '2004', 'Jan.', '3.24']
+['Organic price 1', '2004', 'Feb.', '3.25']
+['Organic price 1', '2004', 'Mar.', '3.23']
+['Organic price 1', '2004', 'Apr.', '3.27']
+['Organic price 1', '2004', 'May', '3.19']
+['Organic price 1', '2004', 'Jun.', '3.21']
+['Organic price 1', '2004', 'Jul.', '3.25']
+['Organic price 1', '2004', 'Aug.', '3.26']
+['Organic price 1', '2004', 'Sep.', '3.21']
+['Organic price 1', '2004', 'Oct.', '3.22']
+['Organic price 1', '2004', 'Nov.', '3.26']
+['Organic price 1', '2004', 'Dec.', '3.23']
+['Organic price 1', '2005', 'Jan.', '3.94']
+['Organic price 1', '2005', 'Feb.', '3.92']
+['Organic price 1', '2005', 'Mar.', '4.01']
+['Organic price 1', '2005', 'Apr.', '3.95']
+['Organic price 1', '2005', 'May', '4.12']
+['Organic price 1', '2005', 'Jun.', '4.22']
+['Organic price 1', '2005', 'Jul.', '4.18']
+['Organic price 1', '2005', 'Aug.', '4.28']
+['Organic price 1', '2005', 'Sep.', '4.30']
+['Organic price 1', '2005', 'Oct.', '4.36']
+['Organic price 1', '2005', 'Nov.', '4.27']
+['Organic price 1', '2005', 'Dec.', '4.65']
+['Organic price 1', '2006', 'Jan.', '4.31']
+['Organic price 1', '2006', 'Feb.', '4.33']
+['Organic price 1', '2006', 'Mar.', '4.23']
+['Organic price 1', '2006', 'Apr.', '4.28']
+['Organic price 1', '2006', 'May', '4.20']
+['Organic price 1', '2006', 'Jun.', '4.17']
+['Organic price 1', '2006', 'Jul.', '4.28']
+['Organic price 1', '2006', 'Aug.', '4.28']
+['Organic price 1', '2006', 'Sep.', '4.36']
+['Organic price 1', '2006', 'Oct.', '4.16']
+['Organic price 1', '2006', 'Nov.', '4.28']
+['Organic price 1', '2006', 'Dec.', '4.32']
+['Organic price 1', '2007', 'Jan.', '4.47']
+['Organic price 1', '2007', 'Feb.', '4.42']
+['Organic price 1', '2007', 'Mar.', '4.67']
+['Organic price 1', '2007', 'Apr.', '4.70']
+['Organic price 1', '2007', 'May', '4.46']
+['Organic price 1', '2007', 'Jun.', '4.32']
+['Organic price 1', '2007', 'Jul.', '4.33']
+['Organic price 1', '2007', 'Aug.', '4.16']
+['Organic price 1', '2007', 'Sep.', '4.45']
+['Organic price 1', '2007', 'Oct.', '4.42']
+['Organic price 1', '2007', 'Nov.', '4.30']
+['Organic price 1', '2007', 'Dec.', '4.40']
+['Conventional price 1', '2004', 'Jan.', '1.64']
+['Conventional price 1', '2004', 'Feb.', '1.62']
+['Conventional price 1', '2004', 'Mar.', '1.61']
+['Conventional price 1', '2004', 'Apr.', '1.64']
+['Conventional price 1', '2004', 'May', '1.86']
+['Conventional price 1', '2004', 'Jun.', '1.91']
+['Conventional price 1', '2004', 'Jul.', '1.86']
+['Conventional price 1', '2004', 'Aug.', '1.74']
+['Conventional price 1', '2004', 'Sep.', '1.71']
+['Conventional price 1', '2004', 'Oct.', '1.72']
+['Conventional price 1', '2004', 'Nov.', '1.72']
+['Conventional price 1', '2004', 'Dec.', '1.70']
+['Conventional price 1', '2005', 'Jan.', '2.06']
+['Conventional price 1', '2005', 'Feb.', '2.03']
+['Conventional price 1', '2005', 'Mar.', '2.06']
+['Conventional price 1', '2005', 'Apr.', '2.05']
+['Conventional price 1', '2005', 'May', '2.07']
+['Conventional price 1', '2005', 'Jun.', '2.04']
+['Conventional price 1', '2005', 'Jul.', '2.02']
+['Conventional price 1', '2005', 'Aug.', '2.03']
+['Conventional price 1', '2005', 'Sep.', '2.03']
+['Conventional price 1', '2005', 'Oct.', '2.04']
+['Conventional price 1', '2005', 'Nov.', '2.05']
+['Conventional price 1', '2005', 'Dec.', '2.06']
+['Conventional price 1', '2006', 'Jan.', '2.05']
+['Conventional price 1', '2006', 'Feb.', '2.04']
+['Conventional price 1', '2006', 'Mar.', '2.03']
+['Conventional price 1', '2006', 'Apr.', '1.98']
+['Conventional price 1', '2006', 'May', '1.99']
+['Conventional price 1', '2006', 'Jun.', '1.97']
+['Conventional price 1', '2006', 'Jul.', '1.97']
+['Conventional price 1', '2006', 'Aug.', '1.98']
+['Conventional price 1', '2006', 'Sep.', '1.97']
+['Conventional price 1', '2006', 'Oct.', '2.01']
+['Conventional price 1', '2006', 'Nov.', '1.98']
+['Conventional price 1', '2006', 'Dec.', '2.01']
+['Conventional price 1', '2007', 'Jan.', '2.03']
+['Conventional price 1', '2007', 'Feb.', '2.04']
+['Conventional price 1', '2007', 'Mar.', '2.06']
+['Conventional price 1', '2007', 'Apr.', '2.11']
+['Conventional price 1', '2007', 'May', '2.16']
+['Conventional price 1', '2007', 'Jun.', '2.24']
+['Conventional price 1', '2007', 'Jul.', '2.39']
+['Conventional price 1', '2007', 'Aug.', '2.46']
+['Conventional price 1', '2007', 'Sep.', '2.46']
+['Conventional price 1', '2007', 'Oct.', '2.46']
+['Conventional price 1', '2007', 'Nov.', '2.46']
+['Conventional price 1', '2007', 'Dec.', '2.43']
