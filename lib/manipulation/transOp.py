@@ -205,10 +205,14 @@ def fold(relation,foldList,ifContainAttributeRow = False,name=""):
 
 def unfold(relation,col1,col2,ifContainAttributeRow = False):
 	col1Set = list()
-	for row in relation:
+	for idx,row in enumerate(relation):
+		if idx == 0 and ifContainAttributeRow:
+			continue
 		col1Set.append(row[col1])
 
 	col1Set = list(set(col1Set))
+
+	print col1Set
 
 	n = len(relation[0])
 	m = len(col1Set)
@@ -234,7 +238,9 @@ def unfold(relation,col1,col2,ifContainAttributeRow = False):
 		newRelation.append(attrRow)
 	
 	otherColumnsIndexDict = dict()
-	for row in relation:
+	for idx,row in enumerate(relation):
+		if idx == 0 and ifContainAttributeRow:
+			continue
 		temp1 = row[col1]
 		temp2 = row[col2]
 		if col2 > col1:

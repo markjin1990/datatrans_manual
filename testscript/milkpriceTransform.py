@@ -8,7 +8,7 @@ import textOp
 
 
 inputData = "../testfile/milkprices.txt"
-relation = csvOp.readCsv(inputData,delimiter=",",lineterminator="\r")
+relation = csvOp.readCsv(inputData)
 
 print "\nInput data:"
 for row in relation:
