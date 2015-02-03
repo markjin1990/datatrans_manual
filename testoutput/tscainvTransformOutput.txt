@@ -1,0 +1,39 @@
+
+Input data:
+['ID', 'PMNNO', 'ACCNO', 'GENERIC NAME', 'FL']
+['1', 'P000005', '232689', 'Polymeric MDI based polyurethane (PROVISIONAL)', 'P; XU']
+['2', 'P000006', '278489', 'Polymeric MDI based polyurethane (PROVISIONAL)', 'P; XU']
+['3', 'P000008', '164331', 'Emulsion polymer (PROVISIONAL)', 'P; XU']
+['4', 'P000009', '257944', 'Copolymer of acrylic esters, acrylic acid and dibromostyrene (PROVISIONAL)', 'P; XU']
+['5', 'P000010', '155421', 'Polyurethane (PROVISIONAL)', 'P; XU']
+['6', 'P000012', '238676', 'Reaction product of cashew nutshell liquid, phenols, formaldehyde, and substituted amines (PROVISIONAL)', 'P']
+['7', 'P000015', '245502', 'Polyoxyalkylene polyester urethane block polymer, salt with phosphorylated polyester (PROVISIONAL)', 'P; XU']
+['8', 'P000024', '260470', 'Aluminum alkylamide (PROVISIONAL)', 'P']
+['9', 'P000028', '173354', 'Acrylic copolymer (PROVISIONAL)', 'P; XU']
+Length: 16398
+
+Select tuples who is not empty in column 4:
+['ID', 'PMNNO', 'ACCNO', 'GENERIC NAME', 'FL']
+['1', 'P000005', '232689', 'Polymeric MDI based polyurethane (PROVISIONAL)', 'P; XU']
+['2', 'P000006', '278489', 'Polymeric MDI based polyurethane (PROVISIONAL)', 'P; XU']
+['3', 'P000008', '164331', 'Emulsion polymer (PROVISIONAL)', 'P; XU']
+['4', 'P000009', '257944', 'Copolymer of acrylic esters, acrylic acid and dibromostyrene (PROVISIONAL)', 'P; XU']
+['5', 'P000010', '155421', 'Polyurethane (PROVISIONAL)', 'P; XU']
+['6', 'P000012', '238676', 'Reaction product of cashew nutshell liquid, phenols, formaldehyde, and substituted amines (PROVISIONAL)', 'P']
+['7', 'P000015', '245502', 'Polyoxyalkylene polyester urethane block polymer, salt with phosphorylated polyester (PROVISIONAL)', 'P; XU']
+['8', 'P000024', '260470', 'Aluminum alkylamide (PROVISIONAL)', 'P']
+['9', 'P000028', '173354', 'Acrylic copolymer (PROVISIONAL)', 'P; XU']
+Length: 14966
+
+Divide the column 4 into 2 columns based on if column 4 is "P; XU":
+['ID', 'PMNNO', 'ACCNO', 'GENERIC NAME', '', '']
+['1', 'P000005', '232689', 'Polymeric MDI based polyurethane (PROVISIONAL)', 'P; XU', '']
+['2', 'P000006', '278489', 'Polymeric MDI based polyurethane (PROVISIONAL)', 'P; XU', '']
+['3', 'P000008', '164331', 'Emulsion polymer (PROVISIONAL)', 'P; XU', '']
+['4', 'P000009', '257944', 'Copolymer of acrylic esters, acrylic acid and dibromostyrene (PROVISIONAL)', 'P; XU', '']
+['5', 'P000010', '155421', 'Polyurethane (PROVISIONAL)', 'P; XU', '']
+['6', 'P000012', '238676', 'Reaction product of cashew nutshell liquid, phenols, formaldehyde, and substituted amines (PROVISIONAL)', '', 'P']
+['7', 'P000015', '245502', 'Polyoxyalkylene polyester urethane block polymer, salt with phosphorylated polyester (PROVISIONAL)', 'P; XU', '']
+['8', 'P000024', '260470', 'Aluminum alkylamide (PROVISIONAL)', '', 'P']
+['9', 'P000028', '173354', 'Acrylic copolymer (PROVISIONAL)', 'P; XU', '']
+Length: 14966

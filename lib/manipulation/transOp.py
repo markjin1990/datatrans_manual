@@ -3,7 +3,7 @@
 import re
 
 # E.g., formatFuncInput = (\w+):(\w+), formatFuncOutput = {0}-{1}
-def reform(relation,col,formatFuncInput,formatFuncOutput):
+def reform(relation,col,formatFuncInput,formatFuncOutput,ifContainAttributeRow = False):
 	if col >= len(relation[0]):
 		print "ERROR: Index out of range"
 		return relation
@@ -11,10 +11,13 @@ def reform(relation,col,formatFuncInput,formatFuncOutput):
 	newRelation = list()
 
 	for idx,row in enumerate(relation):
+		if idx == 0 and ifContainAttributeRow:
+			newRelation.append(list(row))
+			continue
+
 		match = re.match(formatFuncInput,row[col],re.M|re.I)
 		if not match:
-			print "ERROR: No match found. Please check your regular expression."
-			return relation
+			print "WARNING: No match found. Please check your regular expression."
 
 		newRow = list(row)
 		row[col] = formatFuncOutput.format(*match.groups())
@@ -129,14 +132,15 @@ def merge(relation,col1,col2,delimiter):
 
 	newRelation = list()
 	for idx,row in enumerate(relation):
+		newRow = list(row)
 		if col1 > col2:
-			row.pop(col1)
-			row.pop(col2)
+			newRow.pop(col1)
+			newRow.pop(col2)
 		else:
-			row.pop(col2)
-			row.pop(col1)		
-		row.append(row[col1] + delimiter + row[col2])
-		newRelation.append(row) 
+			newRow.pop(col2)
+			newRow.pop(col1)		
+		newRow.append(row[col1] + delimiter + row[col2])
+		newRelation.append(newRow) 
 
 	return newRelation
 
@@ -212,8 +216,6 @@ def unfold(relation,col1,col2,ifContainAttributeRow = False):
 
 	col1Set = list(set(col1Set))
 
-	print col1Set
-
 	n = len(relation[0])
 	m = len(col1Set)
 
@@ -272,9 +274,11 @@ def unfold(relation,col1,col2,ifContainAttributeRow = False):
 
 
 # Select tuples that match the predicate
-def select(relation,pred):
+def select(relation,pred,ifContainAttributeRow=False):
 	newRelation = list()
-	for row in relation:
+	for idx,row in enumerate(relation):
+		if idx == 0 and ifContainAttributeRow:
+			continue
 		if pred(row):
 			newRelation.append(row)
 

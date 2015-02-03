@@ -38,25 +38,23 @@ valueRelation = list()
 for row in relation:
 	newRow = list()
 	for col in row:
+		if col.text != None:
+			newRow.append(col.text)
+
 		if col.attrib != None:
 			newRow = newRow + col.attrib.values()
 
-		if col.text != None:
-			newRow.append(col.text)
+		
 		
 	valueRelation.append(newRow)
+
+#valueRelation.insert(0,["name","mfr","serving","unit","calories","total-fat","saturated-fat","cholesterol","sodium","carbCol",
+#	"fiber","protein","vitamins/A","vitamins/C","minerals/Ca","mineralsFe"])
 
 print "\nExtracted relation:"
 for row in valueRelation:
 	print row
 
-
-# move column from position 2 to 3
-valueRelation = transOp.moveColumn(valueRelation,2,3)
-
-print "\nMove column from 2 to 3:"
-for row in valueRelation:
-	print row
 
 # merge column 2 and 3
 valueRelation = transOp.merge(valueRelation,2,3," ")
