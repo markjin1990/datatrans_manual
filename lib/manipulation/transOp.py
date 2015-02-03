@@ -158,12 +158,12 @@ def split(relation,col,delimiter):
 
 	return newRelation
 
-relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
-print split(relation,1,">")
+#relation = [["abbbb","aaa>bbb"],["b","mmm>lll"]]
+#print split(relation,1,">")
 
 
 # Fold the columns in foldList
-def fold(relation,foldList,name=""):
+def fold(relation,foldList,ifContainAttributeRow = False,name=""):
 	for foldCol in foldList:
 		if foldCol >= len(relation[0]):
 			print "ERROR: Index Out of Range"
@@ -179,7 +179,13 @@ def fold(relation,foldList,name=""):
 	foldList.sort()
 
 	for idx,row in enumerate(relation):
-		if idx != 0:
+		if idx == 0 and ifContainAttributeRow:
+			newRow = list(row)
+			for col in reverseFoldList:
+				newRow.pop(col)
+			newRow.append(name)
+			newRelation.append(newRow)
+		else:
 			rowTemp = list(row)
 			for col in reverseFoldList:
 				rowTemp.pop(col)
@@ -188,12 +194,7 @@ def fold(relation,foldList,name=""):
 				newRow = list(rowTemp)
 				newRow.append(row[foldList[i]])
 				newRelation.append(newRow)
-		else:
-			newRow = list(row)
-			for col in reverseFoldList:
-				newRow.pop(col)
-			newRow.append(name)
-			newRelation.append(newRow)
+		
 
 	return newRelation
 

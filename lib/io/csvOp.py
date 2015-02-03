@@ -9,7 +9,7 @@ def readCsv(filename,delimiter=",",quotechar="\"",doublequote = True,escapechar=
 
 	csv.register_dialect('mydialect', delimiter=delimiter,quotechar=quotechar,doublequote=doublequote,escapechar=escapechar,lineterminator=lineterminator,quoting=quoting,skipinitialspace=skipinitialspace)
 
-	f = open(filename, 'r')
+	f = open(filename, 'rU')
 	try:
 		reader = csv.reader(f,dialect='mydialect')
 		for row in reader:

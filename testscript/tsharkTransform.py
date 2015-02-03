@@ -32,4 +32,11 @@ relation = transOp.split(relation,4,'/')
 print "\nSplit column 4 by /"
 for row in relation:
 	print row
+
+relation = transOp.split(relation,5,'/')
+print "\nSplit column 5 by /"
+for row in relation:
+	print row
+
+
 #csvOp.writeCsv(relation,"output.txt")
