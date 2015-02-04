@@ -2,8 +2,8 @@
 # It has operators: Format, Merge, Divide, Split, Add, Drop, Copy, Fold, Unfold, Select
 import re
 
-# E.g., formatFuncInput = (\w+):(\w+), formatFuncOutput = {0}-{1}
-def reform(relation,col,formatFuncInput,formatFuncOutput,ifContainAttributeRow = False):
+# E.g., inputFormat = (\w+):(\w+), outputFormat = {0}-{1}
+def reform(relation,col,inputFormat,outputFormat,ifContainAttributeRow = False):
 	if col >= len(relation[0]):
 		print "ERROR: Index out of range"
 		return relation
@@ -15,13 +15,13 @@ def reform(relation,col,formatFuncInput,formatFuncOutput,ifContainAttributeRow =
 			newRelation.append(list(row))
 			continue
 
-		match = re.match(formatFuncInput,row[col],re.M|re.I)
+		match = re.match(inputFormat,row[col],re.M|re.I)
 		if not match:
 			print "WARNING: No match found. Please check your regular expression."
 			return relation
 
 		newRow = list(row)
-		row[col] = formatFuncOutput.format(*match.groups())
+		row[col] = outputFormat.format(*match.groups())
 		newRelation.append(row)
 
 	return newRelation
@@ -90,7 +90,7 @@ def drop(relation,col):
 
 
 
-
+# Add a column of values
 def add(relation,value):
 	newRelation = list()
 	if len(value) > 1 and len(value)!=len(relation):
@@ -172,21 +172,21 @@ def split(relation,col,delimiter,ifContainAttributeRow = False):
 #print split(relation,1,">")
 
 
-# Fold the columns in foldList
-def fold(relation,foldList,ifContainAttributeRow = False,name=""):
-	for foldCol in foldList:
+# Fold the columns in foldColumns
+def fold(relation,foldColumns,ifContainAttributeRow = False,name=""):
+	for foldCol in foldColumns:
 		if foldCol >= len(relation[0]):
 			print "ERROR: Index Out of Range"
 			return relation
-	if len(foldList) > len(set(foldList)):
+	if len(foldColumns) > len(set(foldColumns)):
 		print "ERROR: Two columns can not be identical"
 		return relation
 
-	rowNum = len(foldList)
+	rowNum = len(foldColumns)
 	newRelation = list()
-	reverseFoldList = list(foldList)
+	reverseFoldList = list(foldColumns)
 	reverseFoldList.sort(reverse=True)
-	foldList.sort()
+	foldColumns.sort()
 
 	for idx,row in enumerate(relation):
 		if idx == 0 and ifContainAttributeRow:
@@ -202,7 +202,7 @@ def fold(relation,foldList,ifContainAttributeRow = False,name=""):
 
 			for i in range(0,rowNum):
 				newRow = list(rowTemp)
-				newRow.append(row[foldList[i]])
+				newRow.append(row[foldColumns[i]])
 				newRelation.append(newRow)
 		
 
@@ -284,9 +284,9 @@ def unfold(relation,col1,col2,ifContainAttributeRow = False):
 
 	return newRelation
 
-a = [["Alice","Math",80],["Alice","English",90],["Bob","Math",85],["Bob","Physics",80]]
-relation = unfold(a,1,2)
-print relation
+#a = [["Alice","Math",80],["Alice","English",90],["Bob","Math",85],["Bob","Physics",80]]
+#relation = unfold(a,1,2)
+#print relation
 
 
 # Select tuples that match the predicate
@@ -351,7 +351,24 @@ def moveRow(relation,origPosn,dstPosn):
 	return newRelation
 
 
+
 # a = [[1,2,3],[4,5,6]]
 # print moveRow(a,1,0)
+
+# Remove row if specified column is none, if nothing specified then remove the empty row
+def removeEmpty(relation,col=None):
+	newRelation = list()
+	if col:
+		for row in relation:
+			if row[col]!="":
+				newRelation.append(row)
+	else:
+		for row in relation:
+			for item in row:
+				if item != "":
+					newRelation.append(row)
+					break
+	return newRelation
+
 
 

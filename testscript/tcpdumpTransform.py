@@ -27,18 +27,20 @@ relation = transOp.transpose(relation)
 #relation.insert(0,['time','tos','ttl','id','offset','flags','length','srcip','dstip'])
 
 
-
-relation = transOp.merge(relation,7,8,">")
+# Merge column 7 and 8 with delimiter >
+relation = transOp.merge(relation=relation,col1=7,col2=8,delimiter=">")
 print "\nMerge column 7 and 8 with delimiter >"
 for row in relation:
 	print row
 
-relation = transOp.add(relation,[1,2])
+# Add a column of index (row index)
+relation = transOp.add(relation=relation,value=[1,2])
 print "\nAdd a column of index (row index)"
 for row in relation:
 	print row
 
-relation = transOp.moveColumn(relation,8,0)
+# Move the column of index to front
+relation = transOp.moveColumn(relation=relation,origPosn=8,dstPosn=0)
 print "\nMove the column of index to front"
 for row in relation:
 	print row

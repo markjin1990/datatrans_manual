@@ -57,14 +57,14 @@ for row in valueRelation:
 
 
 # merge column 2 and 3
-valueRelation = transOp.merge(valueRelation,2,3," ")
+valueRelation = transOp.merge(relation=valueRelation,col1=2,col2=3,delimiter=" ")
 
 print "\nMerge column 2 and 3:"
 for row in valueRelation:
 	print row
 			
 # reform column 16 as 16(g) 
-valueRelation = transOp.reform(valueRelation,16,"([\d|\.]+)\s+(\w+)","{0}({1})")
+valueRelation = transOp.reform(relation=valueRelation,col=16,inputFormat="([\d|\.]+)\s+(\w+)",outputFormat="{0}({1})")
 
 print "\nReform column 16 as \"number(unit)\":"
 for row in valueRelation:
@@ -77,7 +77,7 @@ def pred(row):
 	else:
 		return False
 
-valueRelation = transOp.select(valueRelation,pred)
+valueRelation = transOp.select(relation=valueRelation,pred=pred)
 
 print "\nSelect low calories food(food that has less than 200 calories):"
 for row in valueRelation:

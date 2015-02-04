@@ -21,19 +21,21 @@ contentLengthCol = textOp.extract(inputData=inputData,valueRegex="\d+",prefixReg
 
 
 relation = [indexCol,timeCol,srcipCol,dstipCol,versionCol,statusCol,contentTypeCol,contentLengthCol]
-relation = transOp.transpose(relation)
+relation = transOp.transpose(relation=relation)
 
 
 print "\nExtracted Relation"
 for row in relation:
 	print row
 
-relation = transOp.split(relation,4,'/')
+# Split column 4 by /
+relation = transOp.split(relation=relation,col=4,delimiter='/')
 print "\nSplit column 4 by /"
 for row in relation:
 	print row
 
-relation = transOp.split(relation,5,'/')
+# Split column 5 by /
+relation = transOp.split(relation=relation,col=5,delimiter='/')
 print "\nSplit column 5 by /"
 for row in relation:
 	print row

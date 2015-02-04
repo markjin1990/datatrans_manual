@@ -21,14 +21,13 @@ def pred(row):
 	else:
 		return False
 
-relation = transOp.select(relation,pred)
+relation = transOp.select(relation=relation,pred=pred)
 print "\nSelect tuples who is not empty in column 4:"
 for i in range(0,10):
 	print relation[i]
 print "Length: "+str(len(relation))
 
 
-# Select tuples who is not empty in column 4
 def pred(s):
 	if s == 'P; XU':
 		return True
@@ -36,7 +35,7 @@ def pred(s):
 		return False
 
 # Divide the column 4 into 2 columns based on if column 4 is "P; XU"
-relation = transOp.divide(relation,4,pred,True)
+relation = transOp.divide(relation=relation,col=4,pred=pred,ifContainAttributeRow=True)
 print "\nDivide the column 4 into 2 columns based on if column 4 is \"P; XU\":"
 for i in range(0,10):
 	print relation[i]
